@@ -62,13 +62,13 @@ public class SalaDeCine {
 		return false;
 	}
 
-	private void venderButacasPorFila(int fila, int cantidadButacas) {
-		for (int i = 0; i < butacas[fila].length; i++) {
-			if (butacas[fila][i] == null) {
+	private void venderButacasPorFila(int filaIncompleta, int cantidadButacas) {
+		for (int i = 0; i < butacas[filaIncompleta].length; i++) {
+			if (butacas[filaIncompleta][i] == null) {
 				int aux = i;
 				for (int j = 0; j < cantidadButacas; j++) {
 					Butaca nuevaButacaOcupada = new Butaca();
-					butacas[fila][aux] = nuevaButacaOcupada;
+					butacas[filaIncompleta][aux] = nuevaButacaOcupada;
 					aux++;
 				}
 				break;
