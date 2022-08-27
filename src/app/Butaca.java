@@ -3,6 +3,7 @@ package app;
 public class Butaca {
 	private Boolean ocupado;
 	
+	// construct
 	public Butaca() {
 		ocupado = false;
 	}
