@@ -46,18 +46,34 @@ public class SalaDeCine {
 	}
 
 	public Boolean hayLugarPara(int cantidadPersonas) {
-		Integer lugaresEnFila = 0;
+		Integer lugaresEnFila;
 
 		for (int i = 0; i < butacas.length; i++) {
 			lugaresEnFila = 0;
 			for (int j = 0; j < butacas[i].length; j++) {
 				lugaresEnFila = butacas[i][j] == null ? ++lugaresEnFila : lugaresEnFila;
-				if (lugaresEnFila == cantidadPersonas)
+				if (lugaresEnFila == cantidadPersonas) {
+					venderButacasPorFila(i, cantidadPersonas);
 					return true;
+				}
 			}
 		}
 
 		return false;
+	}
+
+	private void venderButacasPorFila(int fila, int cantidadButacas) {
+		for (int i = 0; i < butacas[fila].length; i++) {
+			if (butacas[fila][i] == null) {
+				int aux = i;
+				for (int j = 0; j < cantidadButacas; j++) {
+					Butaca nuevaButacaOcupada = new Butaca();
+					butacas[fila][aux] = nuevaButacaOcupada;
+					aux++;
+				}
+				break;
+			}
+		}
 	}
 
 	public Integer cantidadButacasOcupadas() {
