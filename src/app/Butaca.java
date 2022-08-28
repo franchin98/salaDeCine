@@ -5,7 +5,7 @@ public class Butaca {
 	
 	// construct
 	public Butaca() {
-		ocupado = false;
+		ocupado = true;
 	}
 	
 	public Boolean getOcupado() {

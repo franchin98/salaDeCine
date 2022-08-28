@@ -118,9 +118,9 @@ public class InterfazDeUsuarioDelCine {
 		} while (col < 0 || col > 9);
 
 		if (cineActual.butacaOcupada(fila, col))
-			System.out.println("Butaca disponible.");
+		    System.out.println("La butaca no está disponible.");
 		else
-			System.out.println("La butaca no está disponible.");
+		    System.out.println("Butaca disponible.");
 
 	}
 
@@ -146,26 +146,30 @@ public class InterfazDeUsuarioDelCine {
 		System.out.println("\n------------------ Ocupar butacas -------------------");
 
 		do {
-			System.out.print("\nIngrese el número de fila de la butaca: ");
+			System.out.print("Ingrese el número de fila de la butaca: ");
 			fila = leerDatos.nextInt();
 
 			if (fila < 0 || fila > 9)
-				System.out.println("El número de fila debe ser un número comprendido entre 0 y 9");
+				System.out.println("El número de fila debe ser un número comprendido entre 0 y 9\n");
 
 		} while (fila < 0 || fila > 9);
 
 		do {
-			System.out.println("\nIngrese la columna de la butaca: ");
+			System.out.print("Ingrese la columna de la butaca: ");
 			col = leerDatos.nextInt();
 
 			if (col < 0 || col > 9)
-				System.out.println("El número de columna debe ser un número comprendido entre 0 y 9");
+				System.out.println("El número de columna debe ser un número comprendido entre 0 y 9\n");
 		} while (col < 0 || col > 9);
-
-		Butaca nuevaButaca = new Butaca();
-		nuevaButaca.setOcupado(true);
-		cineEnUso.ocuparButaca(fila, col, nuevaButaca);
-		System.out.println("\nSe ha ocupado la butaca exitosamente.");
+		
+		if(cineEnUso.butacaOcupada(fila, col)) {
+		    System.out.println("\nLa butaca ya está ocupada. Por favor, seleccione otra butaca.");
+		} else {
+		    Butaca nuevaButaca = new Butaca();
+		    nuevaButaca.setOcupado(true);
+		    cineEnUso.ocuparButaca(fila, col, nuevaButaca);
+		    System.out.println("\nSe ha ocupado la butaca exitosamente.");		    
+		}
 
 	}
 

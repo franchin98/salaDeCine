@@ -12,8 +12,8 @@ public class SalaDeCine {
 
 	// se verifica en la fila y col dentro de la matriz si es null o si esta
 	// ocupado.
-	public Boolean butacaOcupada(int fila, int col) {
-		return butacas[fila][col] == null;
+	public boolean butacaOcupada(int fila, int col) {
+		return butacas[fila][col] != null;
 	}
 
 	public String getNombreDeCine() {
@@ -45,7 +45,7 @@ public class SalaDeCine {
 		}
 	}
 
-	public Boolean hayLugarPara(int cantidadPersonas) {
+	public boolean hayLugarPara(int cantidadPersonas) {
 		Integer lugaresEnFila;
 
 		for (int i = 0; i < butacas.length; i++) {
@@ -76,7 +76,7 @@ public class SalaDeCine {
 		}
 	}
 
-	public Integer cantidadButacasOcupadas() {
+	public int cantidadButacasOcupadas() {
 		Integer bOcup = 0;
 
 		for (int i = 0; i < butacas.length; i++) {
